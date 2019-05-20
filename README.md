@@ -3,5 +3,6 @@ Extract deep feature vectors from video sequences. The videos are captured with 
 
 Dependencies:  
 PyTorch 1.0  
+TorchVision 0.2.1  
 OpenCV 4.1.0  
 PIL 5.4.1
