@@ -27,4 +27,25 @@ import cv2
 from PIL import Image
 
 class Rescale(object):
-  # TODO
+    """
+    Rescale an image to the given size.
+
+    Args:
+        output_size : Can be int or tuple. In the case a single integer
+        is given, PIL will resize the smallest of the original
+        dimensions to this value, and resize the largest dimention 
+        such as to keep the same aspect ratio.
+    """
+
+    def __init__(self, *output_size):
+        self.output_size = output_size
+
+    def __call__(self, image):
+        """
+        Args:
+            image (PIL.Image) : PIL.Image object to rescale
+        """
+        new_h, new_w = self.output_size
+        new_h, new_w = int(new_h), int(new_w)
+        img = image.resize((new_w, new_h), resample=Image.BILINEAR)
+        return img
