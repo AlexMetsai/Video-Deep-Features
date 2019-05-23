@@ -49,3 +49,7 @@ class Rescale(object):
         new_h, new_w = int(new_h), int(new_w)
         img = image.resize((new_w, new_h), resample=Image.BILINEAR)
         return img
+
+
+class ResNetPool5(nn.Module):
+    # TODO
