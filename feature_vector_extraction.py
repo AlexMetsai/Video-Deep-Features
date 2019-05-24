@@ -53,3 +53,17 @@ class Rescale(object):
 
 class ResNetPool5(nn.Module):
     # TODO
+    def __init__(self, DNN='resnet101'):
+        """
+        Load pretrained ResNet weights on ImageNet. Return the Pool5
+        features as output when called.
+        
+        Args:
+            DNN (string): The DNN architecture. Choose from resnet101, 
+            resnet50 or resnet152. ResNet50 and ResNet152 are not yet 
+            in the release version of TorchVision, you will have to 
+            build from source for these nets to work.
+        """
+        super().__init__()
+    def forward(self, x):
+        # TODO
