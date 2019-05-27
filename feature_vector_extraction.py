@@ -62,7 +62,8 @@ class ResNetPool5(nn.Module):
             DNN (string): The DNN architecture. Choose from resnet101, 
             resnet50 or resnet152. ResNet50 and ResNet152 are not yet 
             in the release version of TorchVision, you will have to 
-            build from source for these nets to work.
+            build from source for these nets to work, or wait for the
+            newer versions.
         """
         super().__init__()
         
