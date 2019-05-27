@@ -65,5 +65,25 @@ class ResNetPool5(nn.Module):
             build from source for these nets to work.
         """
         super().__init__()
+        
+        if DNN == "resnet101":
+            resnet = models.resnet101(pretrained=True)
+        elif DNN == "resnet50":
+            resnet = models.resnet50(pretrained=True)
+        elif DNN == "resnet152":
+            resnet = models.resnet152
+        else:
+            print("Error. Network " + DNN + " not supported.")
+            exit(1)
+        resnet.float()
+        
+        # Use GPU is possible
+        # TODO
+        
+        module_list = list(resnet.children())
+        self.conv5 = nn.Sequential(*module_list[:-2])
+        self.pool5 = module_list[-2]
+        
+        
     def forward(self, x):
         # TODO
