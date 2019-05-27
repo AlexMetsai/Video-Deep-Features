@@ -78,12 +78,13 @@ class ResNetPool5(nn.Module):
         resnet.float()
         
         # Use GPU is possible
-        # TODO
+        if torch.cuda.is_available():
+            resnet.cuda()
+        resnet.eval()
         
         module_list = list(resnet.children())
         self.conv5 = nn.Sequential(*module_list[:-2])
         self.pool5 = module_list[-2]
-        
         
     def forward(self, x):
         # TODO
