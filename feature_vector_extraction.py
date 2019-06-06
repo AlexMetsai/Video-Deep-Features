@@ -92,3 +92,5 @@ class ResNetPool5(nn.Module):
     def forward(self, x):
         res5c = self.conv5(x)
         pool5 = self.pool5(res5c)
+        pool5 = pool5.view(pool5.size(0), -1)
+        return pool5
