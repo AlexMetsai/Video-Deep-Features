@@ -90,4 +90,5 @@ class ResNetPool5(nn.Module):
         self.pool5 = module_list[-2]
         
     def forward(self, x):
-        # TODO
+        res5c = self.conv5(x)
+        pool5 = self.pool5(res5c)
