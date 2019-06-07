@@ -74,7 +74,7 @@ class ResNetPool5(nn.Module):
         elif DNN == "resnet50":
             resnet = models.resnet50(pretrained=True)
         elif DNN == "resnet152":
-            resnet = models.resnet152
+            resnet = models.resnet152(pretrained=True)
         else:
             print("Error. Network " + DNN + " not supported.")
             exit(1)
