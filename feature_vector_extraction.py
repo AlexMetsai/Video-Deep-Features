@@ -94,3 +94,11 @@ class ResNetPool5(nn.Module):
         pool5 = self.pool5(res5c)
         pool5 = pool5.view(pool5.size(0), -1)
         return pool5
+
+
+data_normalization = transforms.Compose([
+    Rescale(224, 224),
+    transforms.ToTensor(),
+    transforms.Normalize(mean=[0.485, 0.456, 0.406], 
+        std=[0.229, 0.224, 0.225])
+])
