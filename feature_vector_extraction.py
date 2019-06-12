@@ -95,7 +95,7 @@ class ResNetPool5(nn.Module):
         pool5 = pool5.view(pool5.size(0), -1)
         return pool5
 
-
+# Check torchvision docs about these normalization values applied on ResNet.
 data_normalization = transforms.Compose([
     Rescale(224, 224),
     transforms.ToTensor(),
