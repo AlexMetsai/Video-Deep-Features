@@ -97,6 +97,7 @@ class ResNetPool5(nn.Module):
 
 # Check torchvision docs about these normalization values applied on ResNet.
 # Since it was applied on training data, we should do so as well.
+# Note that this transform does not cast the data first to [0,1].
 data_normalization = transforms.Compose([
     Rescale(224, 224),
     transforms.ToTensor(),
