@@ -106,3 +106,8 @@ data_normalization = transforms.Compose([
     transforms.Normalize(mean=[0.485, 0.456, 0.406], 
         std=[0.229, 0.224, 0.225])
 ])
+
+if __name__=='__main__':
+    model = ResNetPool5()
+    video_folder = "videos/"
+    # Extract features for all the videos in the list.
