@@ -108,6 +108,15 @@ data_normalization = transforms.Compose([
 ])
 
 if __name__=='__main__':
+    
     model = ResNetPool5()
     video_folder = "videos/"
     # Extract features for all the videos in the list.
+    
+    for file in os.listdir(video_folder):
+        
+        # Empty list to append tensors.
+        features_list = []
+        
+        if file.endswith(".mp4"):
+            print("Processing " + file)
