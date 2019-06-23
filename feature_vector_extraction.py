@@ -120,3 +120,7 @@ if __name__=='__main__':
         
         if file.endswith(".mp4"):
             print("Processing " + file)
+            video_capture = cv2.VideoCapture(video_folder + file)
+            success, image = video_capture.read()
+            i = 1
+            while success:
