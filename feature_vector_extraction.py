@@ -123,4 +123,7 @@ if __name__=='__main__':
             video_capture = cv2.VideoCapture(video_folder + file)
             success, image = video_capture.read()
             i = 1
+            if not success :
+                print("Error while reading video file.")
+                exit(1)
             while success:
