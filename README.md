@@ -1,5 +1,5 @@
 # Video-Deep-Features
-Extract deep feature vectors from video sequences. The videos are captured with OpenCV and their feature vectors are saved in separate pickle files. 
+Extract deep feature vectors from video sequences. The videos are captured with OpenCV and their feature vectors are saved in separate pickle files or, if specified, on a single pickle file containing the whole dataset. 
 
 Dependencies:  
   
