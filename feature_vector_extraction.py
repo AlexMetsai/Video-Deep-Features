@@ -127,3 +127,7 @@ if __name__=='__main__':
                 print("Error while reading video file.")
                 exit(1)
             while success:
+                # The video's frames are captured with cv2. OpenCV treats
+                # images as numpy arrays, but since PyTorch works with PIL
+                # images, we convert them as such.
+                image = Image.fromarray(image)
