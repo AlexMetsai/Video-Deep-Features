@@ -54,7 +54,7 @@ class Rescale(object):
 
 
 class ResNetPool5(nn.Module):
-    # TODO
+    
     def __init__(self, DNN='resnet101'):
         """
         Load pretrained ResNet weights on ImageNet. Return the Pool5
@@ -111,18 +111,20 @@ if __name__=='__main__':
     
     model = ResNetPool5()
     video_folder = "videos/"
-    # Extract features for all the videos in the list.
     
+    # Extract features for all the videos in the list.
     for file in os.listdir(video_folder):
         
-        # Empty list to append tensors.
+        # Empty list to append tensors to.
         features_list = []
         
         if file.endswith(".mp4"):
+            
             print("Processing " + file)
             video_capture = cv2.VideoCapture(video_folder + file)
             success, image = video_capture.read()
             i = 1
+            
             if not success :
                 print("Error while reading video file.")
                 exit(1)
