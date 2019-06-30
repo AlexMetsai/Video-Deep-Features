@@ -133,3 +133,6 @@ if __name__=='__main__':
                 # images as numpy arrays, but since PyTorch works with PIL
                 # images, we convert them as such.
                 image = Image.fromarray(image)
+                
+                # Transform the data to ResNet's desired characteristics.
+                image = data_normalization(image)
