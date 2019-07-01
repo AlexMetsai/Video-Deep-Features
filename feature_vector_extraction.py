@@ -136,3 +136,6 @@ if __name__=='__main__':
                 
                 # Transform the data to ResNet's desired characteristics.
                 image = data_normalization(image)
+                
+                # Add the extra "batch" dimension.
+                image = image.unsqueeze(0)
