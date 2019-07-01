@@ -139,3 +139,9 @@ if __name__=='__main__':
                 
                 # Add the extra "batch" dimension.
                 image = image.unsqueeze(0)
+                
+                # Move the data to GPU and do a forward pass.
+                if torch.cuda.is_available():
+                    pass
+                else:
+                    pass
