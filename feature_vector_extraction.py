@@ -142,6 +142,6 @@ if __name__=='__main__':
                 
                 # Move the data to GPU and do a forward pass.
                 if torch.cuda.is_available():
-                    pass
+                    pool5 = model.forward(image.cuda())
                 else:
                     pass
