@@ -144,4 +144,4 @@ if __name__=='__main__':
                 if torch.cuda.is_available():
                     pool5 = model.forward(image.cuda())
                 else:
-                    pass
+                    pool5 = model.forward(image)
