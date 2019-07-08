@@ -145,3 +145,7 @@ if __name__=='__main__':
                     pool5 = model.forward(image.cuda())
                 else:
                     pool5 = model.forward(image)
+                
+                # Detach the tensor from the model and store it to CPU memory.
+                temp = pool5.clone()
+                temp = temp.detach()
