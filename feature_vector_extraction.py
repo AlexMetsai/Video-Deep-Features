@@ -149,3 +149,5 @@ if __name__=='__main__':
                 # Detach the tensor from the model and store it to CPU memory.
                 temp = pool5.clone()
                 temp = temp.detach()
+                if torch.cuda.is_available():
+                    temp.cpu()
