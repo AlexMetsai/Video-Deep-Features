@@ -151,3 +151,5 @@ if __name__=='__main__':
                 temp = temp.detach()
                 if torch.cuda.is_available():
                     temp.cpu()
+                # Append the tensor to the list.
+                features_list.append(temp)
