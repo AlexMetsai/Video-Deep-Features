@@ -153,3 +153,6 @@ if __name__=='__main__':
                     temp.cpu()
                 # Append the tensor to the list.
                 features_list.append(temp)
+                
+                # Capture the next frame.
+                success, image = video_capture.read()
