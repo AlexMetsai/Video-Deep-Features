@@ -156,3 +156,4 @@ if __name__=='__main__':
                 
                 # Capture the next frame.
                 success, image = video_capture.read()
+                i+=1
