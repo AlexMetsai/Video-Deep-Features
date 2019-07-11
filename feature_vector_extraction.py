@@ -159,3 +159,4 @@ if __name__=='__main__':
                 i+=1
             
             # Save the list of features to pickle file.
+            filename = video_folder + file[:-4] + "_features.pt"
