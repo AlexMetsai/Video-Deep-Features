@@ -163,3 +163,7 @@ if __name__=='__main__':
             filename = video_folder + file[:-4] + "_features.pt"
             torch.save(features_list, filename)
             print("total number of extracted feature vectors for ", file, ":", i)
+
+# TODO:
+# Need to add option to save the features on a single pickle
+# file instead of a separate for each video.
