@@ -161,3 +161,4 @@ if __name__=='__main__':
             
             # Save the list of features to pickle file.
             filename = video_folder + file[:-4] + "_features.pt"
+            torch.save(features_list, filename)
