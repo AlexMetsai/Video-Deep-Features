@@ -22,6 +22,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 '''
 
 import os
+import sys
 import torch
 from torchvision import transforms, models
 import torch.nn as nn
@@ -127,7 +128,7 @@ if __name__=='__main__':
             
             if not success :
                 print("Error while reading video file.")
-                exit(1)
+                sys.exit(-1)
             while success:
                 # The video's frames are captured with cv2. OpenCV treats
                 # images as numpy arrays, but since PyTorch works with PIL
