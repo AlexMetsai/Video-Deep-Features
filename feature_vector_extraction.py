@@ -81,7 +81,7 @@ class ResNetPool5(nn.Module):
             exit(1)
         resnet.float()
         
-        # Use GPU is possible
+        # Use GPU if possible
         if torch.cuda.is_available():
             resnet.cuda()
         resnet.eval()
