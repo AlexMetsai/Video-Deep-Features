@@ -23,6 +23,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import os
 import sys
+import argparse
 import torch
 from torchvision import transforms, models
 import torch.nn as nn
@@ -106,8 +107,19 @@ data_normalization = transforms.Compose([
 
 if __name__=='__main__':
     
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--video_folder', default='videos/')
+    parser.add_argument('--filetype', default='pkl', 
+                        help='chose between pickle (pkl, default) and HDF5 (h5) saving formats')
+    parser.add_argument('--video_ext', default='.mp4', 
+                        help='specify the video\'s extention (default .mp4)')
+    
     model = ResNetPool5()
-    video_folder = "videos/"
+    args = parser.parse_args()
+    video_folder = parser.video_folder
+    filetype = args.filetype
+    ext = args.video_ext
+    
     
     # Extract features for all the videos in the list.
     for file in os.listdir(video_folder):
@@ -115,7 +127,7 @@ if __name__=='__main__':
         # Empty list to append tensors to.
         features_list = []
         
-        if file.endswith(".mp4"):
+        if file.endswith(ext):
             
             print("Processing " + file)
             video_capture = cv2.VideoCapture(video_folder + file)
@@ -157,7 +169,7 @@ if __name__=='__main__':
                 i+=1
             
             # Save the list of features to pickle file.
-            filename = video_folder + file[:-4] + "_features.pt"
+            filename = video_folder + file[:-4] + "_features." + filetype
             torch.save(features_list, filename)
             print("total number of extracted feature vectors for ", file, ":", i)
 
