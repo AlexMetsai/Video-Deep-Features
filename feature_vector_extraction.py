@@ -4,7 +4,7 @@ These features come from the Pool5 layers of a ResNet deep
 neural network, pre-trained on ImageNet. The algorithm captures
 frames directly from video, there is not need for prior frame extraction.
 
-Copyright (C) 2019 Alexandros I. Metsai
+Copyright (C) 2019 - 2021 Alexandros I. Metsai
 alexmetsai@gmail.com
 
 This program is free software; you can redistribute it and/or
