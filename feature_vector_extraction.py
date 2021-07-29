@@ -30,6 +30,7 @@ import torch.nn as nn
 import cv2
 from PIL import Image
 
+
 class Rescale(object):
     """
     Rescale an image to the given size.
@@ -39,6 +40,9 @@ class Rescale(object):
         is given, PIL will resize the smallest of the original
         dimensions to this value, and resize the largest dimention 
         such as to keep the same aspect ratio.
+
+    Returns:
+        img: The rescaled image.
     """
 
     def __init__(self, *output_size):
@@ -61,16 +65,19 @@ class ResNetPool5(nn.Module):
         """
         Load pretrained ResNet weights on ImageNet. Return the Pool5
         features as output when called.
-        
+
         Args:
             DNN (string): The DNN architecture. Choose from resnet101, 
             resnet50 or resnet152. ResNet50 and ResNet152 are not yet 
             in the release version of TorchVision, you will have to 
             build from source for these nets to work, or wait for the
             newer versions.
+
+        Returns:
+            pool5: The pool5 layer of the neural network.
         """
         super().__init__()
-        
+
         if DNN == "resnet101":
             resnet = models.resnet101(pretrained=True)
         elif DNN == "resnet50":
@@ -81,21 +88,22 @@ class ResNetPool5(nn.Module):
             print("Error. Network " + DNN + " not supported.")
             exit(1)
         resnet.float()
-        
+
         # Use GPU if possible
         if torch.cuda.is_available():
             resnet.cuda()
         resnet.eval()
-        
+
         module_list = list(resnet.children())
         self.conv5 = nn.Sequential(*module_list[:-2])
         self.pool5 = module_list[-2]
-        
+
     def forward(self, x):
         res5c = self.conv5(x)
         pool5 = self.pool5(res5c)
         pool5 = pool5.view(pool5.size(0), -1)
         return pool5
+
 
 # Normalization
 data_normalization = transforms.Compose([
@@ -105,22 +113,22 @@ data_normalization = transforms.Compose([
         std=[0.229, 0.224, 0.225])
 ])
 
+
 if __name__=='__main__':
-    
+
     parser = argparse.ArgumentParser()
     parser.add_argument('--video_folder', default='videos/')
     parser.add_argument('--filetype', default='pkl', 
                         help='chose between pickle (pkl, default) and HDF5 (h5) saving formats')
     parser.add_argument('--video_ext', default='.mp4', 
                         help='specify the video\'s extention (default .mp4)')
-    
+
     model = ResNetPool5()
     args = parser.parse_args()
     video_folder = parser.video_folder
     filetype = args.filetype
     ext = args.video_ext
-    
-    
+
     # Extract features for all the videos in the list.
     for file in os.listdir(video_folder):
         
