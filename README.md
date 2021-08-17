@@ -3,7 +3,7 @@ Extract deep feature vectors from video sequences, using the ResNet family of ne
 
 Dependencies:  
   
-PyTorch 1.0  
-TorchVision 0.2.1  
-OpenCV 4.1.0  
-PIL 5.4.1
+- PyTorch 1.0  
+- TorchVision 0.2.1  
+- OpenCV 4.1.0  
+- PIL 5.4.1
