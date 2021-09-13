@@ -1,7 +1,14 @@
 # Video-Deep-Features
 Extract deep feature vectors from video sequences, using the ResNet family of neural networks. The videos are captured with OpenCV and their feature vectors are saved in separate pickle files or, if specified, on a single pickle file containing the whole dataset. 
 
-Dependencies:  
+## Run code
+
+```shell
+python feature_vector_extraction.py --video_folder videos/
+```
+
+
+## Dependencies:  
   
 - PyTorch 1.0  
 - TorchVision 0.2.1  
