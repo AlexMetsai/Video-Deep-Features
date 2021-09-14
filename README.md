@@ -10,7 +10,9 @@ python feature_vector_extraction.py --video_folder videos/
 
 ## Dependencies:  
   
-- PyTorch 1.0  
-- TorchVision 0.2.1  
-- OpenCV 4.1.0  
-- PIL 5.4.1
+- PyTorch 1.0+
+- TorchVision 0.2.1+
+- OpenCV 4.1.0+
+- PIL 5.4.1+
+
+Feel free to inform me for any bugs/issues you encounter with future versions of the above dependencies.
